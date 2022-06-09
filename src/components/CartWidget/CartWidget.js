@@ -1,7 +1,7 @@
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import { FaShoppingCart } from "react-icons/fa";
 
 export default function CartWidget() {
     return (
-        <ShoppingCartIcon />
+        <FaShoppingCart className="w-24 m-auto" />
     )
 }
