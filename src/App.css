@@ -2,10 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-.App {
+/* .App {
     display: flex;
     flex-direction: column;
     align-content: space-between;
+
+
 }
 
 .nav {
@@ -41,4 +43,4 @@
 
 .footer {
 
-}
+} */
