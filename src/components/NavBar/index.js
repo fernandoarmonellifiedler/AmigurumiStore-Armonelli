@@ -1,5 +1,5 @@
-import NavItem from "../NavItem/NavItem";
-import CartWidget from "../CartWidget/CartWidget"
+import NavItem from "../NavItem";
+import CartWidget from "../CartWidget"
 
 export default function NavBar() {
 
@@ -9,7 +9,9 @@ export default function NavBar() {
 
     return (
         <nav className="nav">
-            <div className="nav-brand">Tienda Amigurumi</div>
+            <div className="nav-brand">
+                <a href="/">Tienda Amigurumi</a>
+            </div>
             <ul className="nav-menu">
                 <NavItem handleClick={handleClick} text="Productos" />
                 <NavItem handleClick={handleClick} text="Quienes Somos" />

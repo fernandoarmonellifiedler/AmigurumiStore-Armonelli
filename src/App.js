@@ -1,23 +1,22 @@
 import "./App.css"
-import NavBar from "./components/NavBar/NavBar"
-import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
+import NavBar from "./components/NavBar"
+import ItemListContainer from "./components/ItemListContainer"
 
 function App() {
     return (
-        <div className="App">
+        <main className="App">
             <header className="App-header">
                 <NavBar />
-                <h1>Tienda Amigurumi</h1>
             </header>
 
-            <section>
-                <ItemListContainer greeting="Aqui van a mostrarse los productos" />
+            <section className="main-section">
+                <ItemListContainer/>
             </section>
 
             <footer className="footer">
-                Primer proyecto - Fernando Armonelli
+                Tienda Amigurumi by Fernando Armonelli Fiedler
             </footer>
-        </div>
+        </main>
     );
 }
 
