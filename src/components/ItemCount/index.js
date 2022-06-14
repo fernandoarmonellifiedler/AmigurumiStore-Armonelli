@@ -30,7 +30,7 @@ export default function ItemCount({stock, initial}) {
 
     return (
         <div className='ItemCount'>
-            <h2 className='ItemCount-title'>Contador de productos</h2>
+            <h2 className='ItemCount-title'>Agregar al carrito</h2>
             <div className='ItemCount-buttons'>
                 <button onClick={handleResta}> - </button>
                 <span className='ItemCount-cantidad'>{cantidad}</span>

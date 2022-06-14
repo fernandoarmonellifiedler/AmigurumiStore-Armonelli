@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* === App === */
 .App {
     display: flex;
     flex-direction: column;
@@ -13,6 +14,7 @@
 .App-header {
 }
 
+/* === Navbar === */
 .nav {
     border-bottom: 2px solid rgb(218, 218, 218);
     padding-top: 1rem;
@@ -47,14 +49,32 @@
     justify-content: center;
 }
 
+/* === Main === */
 .main-section {
     
 }
 
+/* === Footer === */
 .footer {
     margin-bottom: 0;
     padding-top: 1rem;
     border-top: 2px solid rgb(218, 218, 218);
+}
+
+/* === ItemList === */
+.ItemList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* === ItemCard === */
+.ItemCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem .5rem;
+    min-width: 20rem;
 }
 
 /* === ItemCount === */
@@ -62,13 +82,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    height: 5rem;
-    padding: .5rem 0rem;
 }
 
 .ItemCount-title {
-    
+    padding-top: .5rem;
 }
 
 .ItemCount-buttons {
