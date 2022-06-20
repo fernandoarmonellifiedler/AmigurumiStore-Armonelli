@@ -1,15 +1,13 @@
-import ItemCount from "../ItemCount"
-
-export default function Item({ item }) {
+export default function ItemDetail({item}) {
     return (
-        <a id={item.id} className="ItemCard" href="#">
+        <div id={item.id} className="ItemDetailCard">
             <h1>{item.name}</h1>
             <img src={item.img} alt={item.name} />
             <p>{item.description}</p>
             <p>{item.category}</p>
             <p>${item.price}</p>
-            <ItemCount initial={item.initial_amount} stock={item.available_stock} />
             <button>Comprar</button>
-        </a>
+        </div>
+        
     )
 }

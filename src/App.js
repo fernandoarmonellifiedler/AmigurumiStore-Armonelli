@@ -1,6 +1,7 @@
 import "./App.css"
 import NavBar from "./components/NavBar"
 import ItemListContainer from "./components/ItemListContainer"
+import ItemDetailContainer from "./components/ItemDetailContainer"
 
 function App() {
     return (
@@ -10,7 +11,8 @@ function App() {
             </header>
 
             <section className="main-section">
-                <ItemListContainer/>
+                {/* <ItemListContainer/> */}
+                <ItemDetailContainer/>
             </section>
 
             <footer className="footer">

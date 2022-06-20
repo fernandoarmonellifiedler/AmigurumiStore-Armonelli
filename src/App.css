@@ -99,3 +99,11 @@
 .ItemCount-cantidad {
     margin: 0rem 2rem;
 }
+
+/* === ItemDetail === */
+.ItemDetailCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem .5rem;
+}
