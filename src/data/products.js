@@ -6,7 +6,7 @@ export const apiProducts = [
         "price": 4,
         "available_stock": 2,
         "initial_amount": 1,
-        "img": "http://dummyimage.com/250x100.png/ff4444/ffffff",
+        "img": "./img/cabra1.jpg",
         "description": "The Mentholatum Company"
     },
     {
@@ -16,7 +16,7 @@ export const apiProducts = [
         "price": 31,
         "available_stock": 4,
         "initial_amount": 1,
-        "img": "http://dummyimage.com/164x100.png/dddddd/000000",
+        "img": "./img/chanchaP1.jpg",
         "description": "Physicians Total Care, Inc."
     },
     {
@@ -26,7 +26,7 @@ export const apiProducts = [
         "price": 1,
         "available_stock": 8,
         "initial_amount": 1,
-        "img": "http://dummyimage.com/227x100.png/5fa2dd/ffffff",
+        "img": "./img/chanchiSirena1.jpg",
         "description": "CHANEL PARFUMS BEAUTE"
     },
     {
@@ -36,7 +36,7 @@ export const apiProducts = [
         "price": 48,
         "available_stock": 3,
         "initial_amount": 1,
-        "img": "http://dummyimage.com/173x100.png/ff4444/ffffff",
+        "img": "./img/gilberto2.jpg",
         "description": "Xspire Pharma"
     },
     {
@@ -46,7 +46,7 @@ export const apiProducts = [
         "price": 13,
         "available_stock": 5,
         "initial_amount": 1,
-        "img": "http://dummyimage.com/166x100.png/cc0000/ffffff",
+        "img": "./img/cocodrilos5.jpg",
         "description": "Mylan Pharmaceuticals Inc."
     },
     {
@@ -56,7 +56,7 @@ export const apiProducts = [
         "price": 16,
         "available_stock": 5,
         "initial_amount": 1,
-        "img": "http://dummyimage.com/217x100.png/cc0000/ffffff",
+        "img": "./img/pollitos.jpg",
         "description": "The Webb Company"
     },
     {
@@ -66,7 +66,7 @@ export const apiProducts = [
         "price": 50,
         "available_stock": 5,
         "initial_amount": 1,
-        "img": "http://dummyimage.com/234x100.png/cc0000/ffffff",
+        "img": "./img/juntxs.jpg",
         "description": "Antigen Laboratories, Inc."
     },
     {
@@ -76,7 +76,7 @@ export const apiProducts = [
         "price": 60,
         "available_stock": 4,
         "initial_amount": 1,
-        "img": "http://dummyimage.com/192x100.png/5fa2dd/ffffff",
+        "img": "./img/gataMama5.jpg",
         "description": "REMEDYREPACK INC."
     },
     {
@@ -86,7 +86,7 @@ export const apiProducts = [
         "price": 87,
         "available_stock": 1,
         "initial_amount": 1,
-        "img": "http://dummyimage.com/112x100.png/cc0000/ffffff",
+        "img": "./img/chanchaP2.jpg",
         "description": "West-ward Pharmaceutical Corp"
     },
     {
@@ -96,7 +96,7 @@ export const apiProducts = [
         "price": 78,
         "available_stock": 1,
         "initial_amount": 1,
-        "img": "http://dummyimage.com/242x100.png/5fa2dd/ffffff",
+        "img": "./img/cocodrilos4.jpg",
         "description": "Newton Laboratories, Inc."
     },
     {
@@ -106,7 +106,7 @@ export const apiProducts = [
         "price": 100,
         "available_stock": 4,
         "initial_amount": 1,
-        "img": "http://dummyimage.com/106x100.png/dddddd/000000",
+        "img": "./img/dinoBaby2.jpg",
         "description": "JMD All Star Impex Inc"
     },
     {
@@ -116,7 +116,7 @@ export const apiProducts = [
         "price": 77,
         "available_stock": 5,
         "initial_amount": 1,
-        "img": "http://dummyimage.com/211x100.png/cc0000/ffffff",
+        "img": "./img/esperma+ovulo1.jpg",
         "description": "Indiana Botanic Gardens"
     }
 ]

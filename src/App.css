@@ -77,6 +77,10 @@
     min-width: 20rem;
 }
 
+.ItemCard img {
+    max-width: 25rem;
+}
+
 /* === ItemCount === */
 .ItemCount {
     display: flex;
