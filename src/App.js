@@ -12,7 +12,7 @@ function App() {
 
             <section className="main-section">
                 {/* <ItemListContainer/> */}
-                <ItemDetailContainer/>
+                <ItemDetailContainer />
             </section>
 
             <footer className="footer">

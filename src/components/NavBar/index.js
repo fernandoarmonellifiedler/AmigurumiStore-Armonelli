@@ -16,7 +16,7 @@ export default function NavBar() {
                 <NavItem handleClick={handleClick} text="Productos" />
                 <NavItem handleClick={handleClick} text="Quienes Somos" />
                 <NavItem handleClick={handleClick} text="Contacto" />
-                <CartWidget/>
+                <CartWidget />
             </ul>
         </nav>
     );

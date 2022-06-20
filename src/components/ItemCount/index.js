@@ -1,10 +1,10 @@
 import { useState } from 'react'
 
-export default function ItemCount({stock, initial}) {
+export default function ItemCount({ stock, initial }) {
     const [cantidad, setCantidad] = useState(initial)
     const [alertMessage, setAlertMessage] = useState("")
 
-    function handleSuma () {
+    function handleSuma() {
         setAlertMessage("");
 
         if (stock > 0) {
@@ -18,7 +18,7 @@ export default function ItemCount({stock, initial}) {
         }
     }
 
-    function handleResta () {
+    function handleResta() {
         setAlertMessage("");
 
         if (cantidad > initial) {

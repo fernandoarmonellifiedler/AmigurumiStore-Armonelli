@@ -1,4 +1,4 @@
-export default function ItemDetail({item}) {
+export default function ItemDetail({ item }) {
     return (
         <div id={item.id} className="ItemDetailCard">
             <h1>{item.name}</h1>
@@ -8,6 +8,6 @@ export default function ItemDetail({item}) {
             <p>${item.price}</p>
             <button>Comprar</button>
         </div>
-        
+
     )
 }
