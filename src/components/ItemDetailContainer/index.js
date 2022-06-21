@@ -1,17 +1,16 @@
 import { useState, useEffect } from "react"
+import { useParams } from "react-router-dom"
 import ItemDetail from "../ItemDetail"
 import { apiProducts } from "../../data/products"
 
 export default function ItemDetailContainer() {
-    const [product, setProduct] = useState([])
-    const max = apiProducts.length - 1;
-    const min = 0;
-    const randomIndex = Math.floor(Math.random() * (max - min + 1) + 1);
+    const [product, setProduct] = useState({})
+    const { id } = useParams();
 
     useEffect(() => {
         const callProduct = new Promise((resolve, reject) => {
             setTimeout(() => {
-                resolve(apiProducts[randomIndex]) // Devuelve un index aleatorio del total de productos
+                resolve(apiProducts.find(item => item.id == id))
             }, 2000)
         })
 
@@ -23,7 +22,7 @@ export default function ItemDetailContainer() {
                 console.log(error)
             })
 
-    }, [])
+    }, [id])
 
     return (
         <ItemDetail item={product} />

@@ -1,22 +1,22 @@
-import NavItem from "../NavItem";
+import { NavLink } from "react-router-dom"
 import CartWidget from "../CartWidget"
 
 export default function NavBar() {
 
-    function handleClick() {
-        console.log("click")
-    }
-
     return (
         <nav className="nav">
             <div className="nav-brand">
-                <a href="/">Tienda Amigurumi</a>
+                <NavLink to="/">Tienda Amigurumi</NavLink>
             </div>
             <ul className="nav-menu">
-                <NavItem handleClick={handleClick} text="Productos" />
-                <NavItem handleClick={handleClick} text="Quienes Somos" />
-                <NavItem handleClick={handleClick} text="Contacto" />
-                <CartWidget />
+                <NavLink className="nav-item" to="/">All</NavLink>
+                <NavLink className="nav-item" to="/category/porks">Porks</NavLink>
+                <NavLink className="nav-item" to="/category/crocodiles">Crocodiles</NavLink>
+                <NavLink className="nav-item" to="/category/birds">Birds</NavLink>
+                <NavLink className="nav-item" to="/category/others">Others</NavLink>
+                <NavLink to="/cart" className="w-24 m-auto">
+                    <CartWidget />
+                </NavLink>
             </ul>
         </nav>
     );
