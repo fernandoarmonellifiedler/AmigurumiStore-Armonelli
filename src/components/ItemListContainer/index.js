@@ -5,15 +5,16 @@ import { apiProducts } from "../../data/products"
 
 export default function ItemListContainer() {
     const [products, setProducts] = useState([])
+    const [loading, setLoading] = useState(false)
     const { categoryId } = useParams();
 
     useEffect(() => {
         const callProducts = new Promise((resolve, reject) => {
             setTimeout(() => {
-                if (categoryId == undefined) {
+                if (categoryId === undefined) {
                     resolve(apiProducts)
                 } else {
-                    resolve(apiProducts.filter(item => item.category == categoryId))
+                    resolve(apiProducts.filter(item => item.category === categoryId))
                 }
             }, 2000)
         })
@@ -21,6 +22,7 @@ export default function ItemListContainer() {
         callProducts
             .then((resolve) => {
                 setProducts(resolve)
+                setLoading(true)
             })
             .catch((error) => {
                 console.log(error)
@@ -29,6 +31,15 @@ export default function ItemListContainer() {
     }, [categoryId])
 
     return (
-        <ItemList items={products} />
+        <>
+        { 
+            loading ? 
+            <ItemList items={products} />
+            : 
+            <div className="loadingBox">
+                <h1 className="loadingText">Loading...</h1>
+            </div>
+        }
+        </>
     )
 }

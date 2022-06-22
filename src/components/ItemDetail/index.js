@@ -7,7 +7,7 @@ export default function ItemDetail({ item }) {
             <h1>{item.name}</h1>
             <img src={item.img} alt={item.name} />
             <p>{item.description}</p>
-            <p>${item.price}</p>
+            <p>$ {item.price}</p>
 
             <Link to="/cart">
                 Comprar

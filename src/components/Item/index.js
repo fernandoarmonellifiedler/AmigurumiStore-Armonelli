@@ -12,10 +12,13 @@ export default function Item({ item }) {
             <p className="ItemCardPrice">${item.price}</p>
             <Link to={"/item/" + item.id} >Ver Detalle</Link>
 
-            <ItemCount initial={item.initial_amount} stock={item.available_stock} />
-            <Link to="/cart">
-                Comprar
-            </Link>
+            <div className="ItemCardShoppingCartBox">
+                <ItemCount initial={item.initial_amount} stock={item.available_stock} />
+                <Link to="/cart">
+                    Comprar
+                </Link>
+            </div>
+            
         </div>
     )
 }

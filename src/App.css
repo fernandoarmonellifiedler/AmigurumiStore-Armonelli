@@ -122,3 +122,32 @@
     font-weight: bold;
     font-size: 3rem;
 }
+
+/* === Others === */
+.loadingBox {
+    width: 10rem;
+    margin: auto;
+}
+
+.loadingText {
+    font-size: 2rem;
+}
+
+.CartContainer {
+    width: 30rem;
+    margin: auto;
+}
+
+.CartContainerText {
+    font-size: 1.5rem;
+}
+
+.ItemCardShoppingCartBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: beige;
+    min-width: 18rem;
+    min-height: 5.5rem;
+    border-radius: .5rem;
+}
