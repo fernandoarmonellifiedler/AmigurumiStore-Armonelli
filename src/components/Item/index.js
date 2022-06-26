@@ -1,7 +1,14 @@
 import { Link } from "react-router-dom"
+import { useState } from 'react'
 import ItemCount from "../ItemCount"
 
 export default function Item({ item }) {
+    const [ addedToCart, setAddedToCart ] = useState(false)
+
+    function handleOnAdd(quantityToAdd) {
+        setAddedToCart(true)
+        console.log(quantityToAdd.target.value)
+    }
 
     return (
         <div id={item.id} className="ItemCard">
@@ -13,10 +20,10 @@ export default function Item({ item }) {
             <Link to={"/item/" + item.id} >Ver Detalle</Link>
 
             <div className="ItemCardShoppingCartBox">
-                <ItemCount initial={item.initial_amount} stock={item.available_stock} />
-                <Link to="/cart">
-                    Comprar
-                </Link>
+                { addedToCart
+                ? <Link to="/cart">Ir a carrito</Link>
+                : <ItemCount initial={item.initial_amount} stock={item.available_stock} onAdd={handleOnAdd} />
+                }
             </div>
             
         </div>

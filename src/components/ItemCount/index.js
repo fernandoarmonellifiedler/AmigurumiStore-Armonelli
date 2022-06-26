@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export default function ItemCount({stock, initial}) {
+export default function ItemCount({stock, initial, onAdd}) {
     const [cantidad, setCantidad] = useState(initial)
     const [alertMessage, setAlertMessage] = useState("")
 
@@ -36,6 +36,9 @@ export default function ItemCount({stock, initial}) {
                 <span className='ItemCount-cantidad'>{cantidad}</span>
                 <button onClick={handleSuma}> + </button>
             </div>
+
+            <button onClick={onAdd} value={cantidad} >Comprar</button>
+
             <div className='ItemCount-message'>
                 <span>{alertMessage}</span>
             </div>
