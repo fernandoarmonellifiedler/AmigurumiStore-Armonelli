@@ -1,10 +1,24 @@
-import { useState } from 'react'
+import { useState, useEffect, useContext } from 'react'
+import CartContext from '../../context/CartContext'
 
-export default function ItemCount({stock, initial, onAdd}) {
+export default function ItemCount({ stock, initial, onAdd, itemId }) {
     const [cantidad, setCantidad] = useState(initial)
     const [alertMessage, setAlertMessage] = useState("")
+    const { cart, isInCart } = useContext(CartContext)
 
-    function handleSuma () {
+    /* useEffect to update counter if item is already in cart */
+    useEffect(() => {
+        if (isInCart(itemId)) {
+            let itemInCart = cart.find((cartItem) => {
+                return cartItem.id === itemId
+            })
+            /* Updates initial value to actual quantity if cart changes*/
+            setCantidad(itemInCart.quantity)
+        }
+    },[cart])
+
+    function handleSuma() {
+        /* State to display a message below */
         setAlertMessage("");
 
         if (stock > 0) {
@@ -18,7 +32,7 @@ export default function ItemCount({stock, initial, onAdd}) {
         }
     }
 
-    function handleResta () {
+    function handleResta() {
         setAlertMessage("");
 
         if (cantidad > initial) {
@@ -37,7 +51,7 @@ export default function ItemCount({stock, initial, onAdd}) {
                 <button onClick={handleSuma}> + </button>
             </div>
 
-            <button onClick={onAdd} value={cantidad} >Comprar</button>
+            <button onClick={() => onAdd(cantidad)} >Comprar</button>
 
             <div className='ItemCount-message'>
                 <span>{alertMessage}</span>

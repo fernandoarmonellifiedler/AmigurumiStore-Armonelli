@@ -1,13 +1,12 @@
-import { Link } from "react-router-dom"
 import { useState } from 'react'
 import ItemCount from "../ItemCount"
+import { Link } from "react-router-dom"
 
 export default function Item({ item }) {
     const [ addedToCart, setAddedToCart ] = useState(false)
 
     function handleOnAdd(quantityToAdd) {
         setAddedToCart(true)
-        console.log(quantityToAdd.target.value)
     }
 
     return (

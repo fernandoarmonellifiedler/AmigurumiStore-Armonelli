@@ -14,7 +14,7 @@ export default function NavBar() {
                 <NavLink className="nav-item" to="/category/crocodiles">Crocodiles</NavLink>
                 <NavLink className="nav-item" to="/category/birds">Birds</NavLink>
                 <NavLink className="nav-item" to="/category/others">Others</NavLink>
-                <NavLink to="/cart" className="w-24 m-auto">
+                <NavLink to="/cart" className="w-12 m-auto flex justify-between items-center">
                     <CartWidget />
                 </NavLink>
             </ul>

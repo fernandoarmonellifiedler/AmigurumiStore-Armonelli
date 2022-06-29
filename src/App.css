@@ -49,6 +49,11 @@
     justify-content: center;
 }
 
+.cartWidget {
+    width: 3rem;
+    margin: auto;
+}
+
 /* === Main === */
 .main-section {
     
@@ -134,7 +139,7 @@
 }
 
 .CartContainer {
-    width: 30rem;
+    padding-left: 2rem;
     margin: auto;
 }
 
