@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import ItemDetail from "../ItemDetail"
 import { apiProducts } from "../../data/products"
+import { PropagateLoader } from "react-spinners"
 
 export default function ItemDetailContainer() {
     const [product, setProduct] = useState({})
@@ -12,7 +13,7 @@ export default function ItemDetailContainer() {
         const callProduct = new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve(apiProducts.find(item => item.id === id))
-            }, 2000)
+            }, 600)
         })
 
         callProduct
@@ -27,14 +28,14 @@ export default function ItemDetailContainer() {
 
     return (
         <>
-        { 
-            loading ? 
-            <ItemDetail item={product} /> 
-            : 
-            <div className="loadingBox">
-                <h1 className="loadingText">Loading...</h1>
-            </div>
-        }
+            { 
+                loading ? 
+                <ItemDetail item={product} /> 
+                : 
+                <div className="loadingBox">
+                    <PropagateLoader  className="loadingItem" />
+                </div>
+            }
         </>
     )
 }

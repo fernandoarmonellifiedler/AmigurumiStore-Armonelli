@@ -6,7 +6,7 @@ import CartContext from '../../context/CartContext'
 export default function Item({ item }) {
     /* Checks if "Comprar" button was clicked */
     const [addedToCart, setAddedToCart] = useState(false)
-    const { addItem, removeItem, clearCart } = useContext(CartContext)
+    const { addItem, removeItem, isInCart } = useContext(CartContext)
 
     /* Call methods imported from Context with handlers */
     function handleOnAdd(quantityToAdd) {
@@ -19,11 +19,6 @@ export default function Item({ item }) {
         removeItem(itemId)
     }
 
-    function handleOnClear() {
-        setAddedToCart(false)
-        clearCart()
-    }
-
     return (
         <div id={item.id} className="ItemCard">
             <h1>{item.name}</h1>
@@ -34,15 +29,16 @@ export default function Item({ item }) {
             <Link to={"/item/" + item.id} >Ver Detalle</Link>
 
             <div className="ItemCardShoppingCartBox">
-            {addedToCart
-                ? <Link to="/cart">Ir a carrito</Link>
-                : <ItemCount initial={item.initial_amount} stock={item.available_stock} onAdd={handleOnAdd} itemId={item.id} />
-            }
+                {addedToCart
+                    ? <Link to="/cart">Terminar mi compra</Link>
+                    : <ItemCount initial={item.initial_amount} stock={item.available_stock} onAdd={handleOnAdd} itemId={item.id} />
+                }
 
-            <button onClick={() => handleOnRemove(item.id)} >Eliminar Producto</button>
-            <button onClick={() => handleOnClear()} >Limpiar Carrito</button>
+                { isInCart(item.id) &&
+                <>
+                    <button onClick={() => handleOnRemove(item.id)} >Eliminar Producto</button>
+                </> }
             </div>
-            
         </div>
     )
 }

@@ -4,10 +4,12 @@ const CartContext = createContext();
 
 export function CartContextProvider({ children }) {
     const [cart, setCart] = useState([]);
+    const [totalQuantity, setTotalQuantity] = useState(0);
+    const [totalPrice, setTotalPrice] = useState(0);
 
     /* To test: logs cart if cart changes */
     useEffect(() => {
-        console.log(cart);
+        countTotal()
     }, [cart])
 
     // Add products
@@ -35,6 +37,8 @@ export function CartContextProvider({ children }) {
     // Remove all products
     function clearCart() {
         setCart([])
+        setTotalQuantity(0)
+        setTotalPrice(0)
     }
 
     //Check if the product is in the cart
@@ -44,9 +48,24 @@ export function CartContextProvider({ children }) {
         })
     }
 
+    function countTotal() {
+        let totalItems = 0
+        let price = 0
+        if (cart.length > 0) {
+            cart.map((item) => {
+                totalItems += item.quantity
+                price += (item.price * item.quantity)
+                return item
+            })
+        }
+
+        setTotalQuantity(totalItems)
+        setTotalPrice(price)
+    }
+
     return (
         <CartContext.Provider
-            value={{ cart, addItem, removeItem, clearCart, isInCart }}
+            value={{ cart, addItem, removeItem, clearCart, isInCart, countTotal, totalQuantity, totalPrice  }}
         >
             {children}
         </CartContext.Provider>

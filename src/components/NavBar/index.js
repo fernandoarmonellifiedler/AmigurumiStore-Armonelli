@@ -1,7 +1,11 @@
+import { useContext } from "react"
 import { NavLink } from "react-router-dom"
 import CartWidget from "../CartWidget"
 
+import CartContext from '../../context/CartContext'
+
 export default function NavBar() {
+    const { totalQuantity } = useContext(CartContext)
 
     return (
         <nav className="nav">
@@ -14,9 +18,11 @@ export default function NavBar() {
                 <NavLink className="nav-item" to="/category/crocodiles">Crocodiles</NavLink>
                 <NavLink className="nav-item" to="/category/birds">Birds</NavLink>
                 <NavLink className="nav-item" to="/category/others">Others</NavLink>
-                <NavLink to="/cart" className="w-12 m-auto flex justify-between items-center">
+                {totalQuantity > 0 && 
+                <NavLink to="/cart" className="CartWidget">
                     <CartWidget />
                 </NavLink>
+                }
             </ul>
         </nav>
     );

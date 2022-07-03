@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import ItemList from "../ItemList"
 import { apiProducts } from "../../data/products"
+import { PropagateLoader } from "react-spinners"
 
 export default function ItemListContainer() {
     const [products, setProducts] = useState([])
@@ -16,7 +17,7 @@ export default function ItemListContainer() {
                 } else {
                     resolve(apiProducts.filter(item => item.category === categoryId))
                 }
-            }, 2000)
+            }, 600)
         })
 
         callProducts
@@ -32,14 +33,14 @@ export default function ItemListContainer() {
 
     return (
         <>
-        { 
-            loading ? 
-            <ItemList items={products} />
-            : 
-            <div className="loadingBox">
-                <h1 className="loadingText">Loading...</h1>
-            </div>
-        }
+            { 
+                loading ? 
+                <ItemList items={products} />
+                : 
+                <div className="loadingBox">
+                    <PropagateLoader  className="loadingItem" />
+                </div>
+            }
         </>
     )
 }
