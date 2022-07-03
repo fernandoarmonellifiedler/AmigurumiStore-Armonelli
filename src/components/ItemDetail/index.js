@@ -3,7 +3,7 @@ import ItemCount from "../ItemCount"
 import { Link } from "react-router-dom"
 import CartContext from '../../context/CartContext'
 
-export default function ItemDetail({ item, size }) {
+export default function ItemDetail({ item }) {
     /* Checks if "Comprar" button was clicked */
     const [addedToCart, setAddedToCart] = useState(false)
     const { addItem, removeItem, clearCart } = useContext(CartContext)
@@ -25,7 +25,7 @@ export default function ItemDetail({ item, size }) {
     }
 
     return (
-        <div id={item.id} className={size === "sm" ? "ItemCard" : "ItemDetailCard"}>
+        <div id={item.id} className="ItemDetailCard">
             <h1>{item.name}</h1>
 
             <Link to={"/item/" + item.id}>
@@ -33,11 +33,8 @@ export default function ItemDetail({ item, size }) {
             </Link>
             <p>$ {item.price}</p>
 
-            {size === "sm" && <>
-                <Link to={"/item/" + item.id} >Ver Detalle</Link>
-                <p>{item.description}</p>
-            </>}
-
+            <Link to={"/item/" + item.id} >Ver Detalle</Link>
+            <p>{item.description}</p>
 
             {addedToCart
                 ? <Link to="/cart">Ir a carrito</Link>
