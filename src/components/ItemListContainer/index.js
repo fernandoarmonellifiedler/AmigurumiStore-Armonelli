@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import ItemList from "../ItemList"
-import { apiProducts } from "../../data/products"
 import { PropagateLoader } from "react-spinners"
+import { getItems } from "../../services/firestore"
 
 export default function ItemListContainer() {
     const [products, setProducts] = useState([])
@@ -10,17 +10,7 @@ export default function ItemListContainer() {
     const { categoryId } = useParams();
 
     useEffect(() => {
-        const callProducts = new Promise((resolve, reject) => {
-            setTimeout(() => {
-                if (categoryId === undefined) {
-                    resolve(apiProducts)
-                } else {
-                    resolve(apiProducts.filter(item => item.category === categoryId))
-                }
-            }, 600)
-        })
-
-        callProducts
+        getItems()
             .then((resolve) => {
                 setProducts(resolve)
                 setLoading(true)

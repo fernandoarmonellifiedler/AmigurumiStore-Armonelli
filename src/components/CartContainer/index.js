@@ -40,7 +40,10 @@ export default function CartContainer() {
                 <h1 className="CartContainerText">No tienes items agregados a tu carrito</h1>
             </>
             }
-
+            <button>
+                <Link to="/">Finalizar compra</Link>
+            </button>
+            
             <Link to="/">Back to Home</Link>
         </div>
     )

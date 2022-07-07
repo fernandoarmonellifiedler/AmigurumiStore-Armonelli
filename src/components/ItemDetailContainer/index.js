@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import ItemDetail from "../ItemDetail"
-import { apiProducts } from "../../data/products"
 import { PropagateLoader } from "react-spinners"
+import { getItem } from "../../services/firestore"
 
 export default function ItemDetailContainer() {
     const [product, setProduct] = useState({})
@@ -10,13 +10,7 @@ export default function ItemDetailContainer() {
     const { id } = useParams();
 
     useEffect(() => {
-        const callProduct = new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve(apiProducts.find(item => item.id === id))
-            }, 600)
-        })
-
-        callProduct
+        getItem(id)
             .then((resolve) => {
                 setProduct(resolve)
                 setLoading(true)
