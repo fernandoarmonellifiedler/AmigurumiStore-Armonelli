@@ -58,7 +58,6 @@ export function CartContextProvider({ children }) {
                 return item
             })
         }
-
         setTotalQuantity(totalItems)
         setTotalPrice(price)
     }

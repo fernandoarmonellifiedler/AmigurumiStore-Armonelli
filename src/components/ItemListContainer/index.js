@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import ItemList from "../ItemList"
 import { PropagateLoader } from "react-spinners"
-import { getItems } from "../../services/firestore"
+import { getItems, getItemsByCategory } from "../../services/firestore"
 
 export default function ItemListContainer() {
     const [products, setProducts] = useState([])
@@ -10,7 +10,8 @@ export default function ItemListContainer() {
     const { categoryId } = useParams();
 
     useEffect(() => {
-        getItems()
+        if (categoryId) {
+            getItemsByCategory(categoryId)
             .then((resolve) => {
                 setProducts(resolve)
                 setLoading(true)
@@ -18,6 +19,17 @@ export default function ItemListContainer() {
             .catch((error) => {
                 console.log(error)
             })
+        } else {
+            getItems(categoryId)
+            .then((resolve) => {
+                setProducts(resolve)
+                setLoading(true)
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+        }
+        
 
     }, [categoryId])
 
