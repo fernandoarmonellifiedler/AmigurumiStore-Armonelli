@@ -1,6 +1,6 @@
 
 import { initializeApp } from "firebase/app";
-import { getFirestore, getDocs, getDoc, doc, collection, query, where } from "firebase/firestore"
+import { getFirestore, getDocs, getDoc, doc, collection, query, where, addDoc, Timestamp } from "firebase/firestore"
 
 const firebaseConfig = {
     apiKey: "AIzaSyBr18GU20a580QyvB4pCTHBQS7viGk9abs",
@@ -15,16 +15,11 @@ const firebaseConfig = {
 const appFirebase = initializeApp(firebaseConfig);
 const appFirestore = getFirestore(appFirebase);
 
-
-export function testDatabase() {
-    /* console.log(appFirestore) */
-}
-
 export async function getItems() {
     const itemsColletion = collection(appFirestore, "amigurumi")
     const itemsSnapshot = await getDocs(itemsColletion);
 
-    let respuesta = itemsSnapshot.docs.map( doc => {
+    let respuesta = itemsSnapshot.docs.map(doc => {
         return {
             ...doc.data(),
             id: doc.id
@@ -41,7 +36,7 @@ export async function getItemsByCategory(categoryId) {
     const q = query(itemsColletion, where("category", "==", categoryId));
     const itemsSnapshot = await getDocs(q);
 
-    let respuesta = itemsSnapshot.docs.map( doc => {
+    let respuesta = itemsSnapshot.docs.map(doc => {
         return {
             ...doc.data(),
             id: doc.id
@@ -60,7 +55,31 @@ export async function getItem(id) {
         id: docSnapshot.id,
         ...docSnapshot.data()
     }
-
 }
+
+export async function createOrder(dataOrder) {
+    const orderColletion = collection(appFirestore, "amigurumiOrders")
+    const orderTimestamp = Timestamp.now()
+
+    const orderWithTimestamp = {
+        order: {...dataOrder},
+        time: orderTimestamp
+    }
+
+    const orderCreated = await addDoc(orderColletion, orderWithTimestamp)
+
+    return orderCreated
+}
+
+/* export async function getOrder(id) {
+    const docRef = doc(appFirestore, "amigurumiOrders", id)
+
+    const docSnapshot = await getDoc(docRef)
+
+    return {
+        id: docSnapshot.id,
+        ...docSnapshot.data()
+    }
+} */
 
 export default appFirestore;

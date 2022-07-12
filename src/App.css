@@ -11,15 +11,13 @@
     height: 600px;
 }
 
-.App-header {
-}
 
 /* === Navbar === */
 .nav {
     border-bottom: 2px solid rgb(218, 218, 218);
     padding-top: 1rem;
     padding-bottom: 1rem;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
 
     display: flex;
     flex-direction: row;
@@ -65,9 +63,9 @@
 
 /* === Footer === */
 .footer {
-    margin-bottom: 0;
     padding-top: 1rem;
     border-top: 2px solid rgb(218, 218, 218);
+    padding-left: 1rem;
 }
 
 /* === ItemList === */
@@ -158,6 +156,14 @@
 .CartContainer {
     padding-left: 2rem;
     margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.CartContainerTitle {
+    align-self: flex-start;
+    margin-bottom: 2rem;
 }
 
 .CartContainerText {
@@ -168,16 +174,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    width: 100%;
+    min-width: 50rem;
 }
 
 .cartTotal {
+    align-self: flex-end;
+
     display: flex;
     align-items: center;
     justify-content: center;
 
     width: 10rem;
     height: 2rem;
-    margin: 1rem 6rem 2rem auto;
+    margin: 1rem 2rem;
+    
     background-color: rgb(255, 213, 150);
     border-radius: .5rem;
     box-shadow: .2rem .2rem .3rem rgb(148, 148, 148);
@@ -186,6 +198,25 @@
 .cartTotal p {
     font-size: 1.2rem;
     font-weight: bold;
+}
+
+.CartContainer--button {
+    align-self: flex-end;
+    margin-right: 2rem;
+
+    background-color: rgb(0, 183, 255);
+    width: 12rem;
+    height: 3rem;
+    border-radius: .5rem;
+    
+}
+
+.CartContainer--button--text {
+    font-size: 1.2rem;
+}
+
+.CartContainer--backTo {
+    align-self: flex-start;
 }
 
 /* === CartCard === */
@@ -199,5 +230,56 @@
 
     background-color: rgb(150, 255, 255);
     border-radius: .5rem;
-    box-shadow: .2rem .2rem .3rem rgb(148, 148, 148) ;
+    box-shadow: .2rem .2rem .3rem rgb(148, 148, 148);
+}
+
+/* === CartForm === */
+.CartFormContainer {
+    position: fixed;
+    background-color: white;
+
+    width: 30rem;
+    height: 22rem;
+    box-shadow: .2rem .2rem .3rem rgb(148, 148, 148);
+    padding: 1rem;
+    margin: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.CartFormHeader {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+}
+
+.CartFormTitle {
+    font-size: 1.2rem;
+}
+
+.CartFormClose {
+    font-size: 1.2rem;
+}
+
+.CartForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem;
+}
+
+.CartFormInput {
+    border: 2px solid rgb(218, 218, 218);
+}
+
+.CartFormButton {
+    margin-top: 1.5rem;
+    background-color: rgb(0, 183, 255);
+    width: 12rem;
+    height: 3rem;
+    border-radius: .5rem;
 }
