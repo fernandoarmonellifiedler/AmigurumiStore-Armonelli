@@ -4,6 +4,7 @@ import ItemListContainer from "./components/ItemListContainer"
 import ItemDetailContainer from "./components/ItemDetailContainer"
 import CartContainer from "./components/CartContainer"
 import SuccessPage from "./components/SuccessPage"
+import ErrorPage from "./components/ErrorPage"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import {CartContextProvider} from "./context/CartContext"
 
@@ -23,6 +24,7 @@ function App() {
                             <Route path="/item/:id" element={<ItemDetailContainer />} />
                             <Route path="/cart" element={<CartContainer />} />
                             <Route path="/success/:id" element={<SuccessPage />} />
+                            <Route path="*" element={<ErrorPage />} />
                         </Routes>
                     </section>
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import ItemDetail from "../ItemDetail"
 import { PropagateLoader } from "react-spinners"
 import { getItem } from "../../services/firestore"
@@ -9,11 +9,17 @@ export default function ItemDetailContainer() {
     const [loading, setLoading] = useState(false)
     const { id } = useParams();
 
+    const navigate = useNavigate();
+
     useEffect(() => {
         getItem(id)
             .then((resolve) => {
-                setProduct(resolve)
-                /* setLoading(true) */
+                if (resolve.name) {
+                    setProduct(resolve)
+                    setLoading(true)
+                } else {
+                    navigate("/ErrorPage")
+                }
             })
             .catch((err) => {
                 console.error(err)
