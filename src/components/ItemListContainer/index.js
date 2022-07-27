@@ -16,8 +16,8 @@ export default function ItemListContainer() {
                 setProducts(resolve)
                 setLoading(true)
             })
-            .catch((error) => {
-                console.log(error)
+            .catch((err) => {
+                console.error(err)
             })
         } else {
             getItems(categoryId)
@@ -25,12 +25,10 @@ export default function ItemListContainer() {
                 setProducts(resolve)
                 setLoading(true)
             })
-            .catch((error) => {
-                console.log(error)
+            .catch((err) => {
+                console.error(err)
             })
         }
-        
-
     }, [categoryId])
 
     return (

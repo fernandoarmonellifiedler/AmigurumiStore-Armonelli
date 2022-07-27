@@ -13,8 +13,6 @@ export default function CartForm({handleOpenCloseForm}) {
     const navigate = useNavigate();
 
     function handleChange(e) {
-        
-
         setBuyerData({
             ...buyerData,
             [e.target.name]: e.target.value

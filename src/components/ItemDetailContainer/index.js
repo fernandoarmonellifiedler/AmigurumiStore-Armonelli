@@ -15,8 +15,8 @@ export default function ItemDetailContainer() {
                 setProduct(resolve)
                 setLoading(true)
             })
-            .catch((error) => {
-                console.log(error)
+            .catch((err) => {
+                console.error(err)
             })
     }, [id])
 

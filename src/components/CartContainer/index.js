@@ -12,7 +12,6 @@ export default function CartContainer() {
         countTotal()
     }, [countTotal])
 
-    /* Call methods imported from Context with handlers */
     function handleOnClear() {
         clearCart()
     }

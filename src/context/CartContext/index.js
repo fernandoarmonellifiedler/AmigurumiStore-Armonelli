@@ -16,14 +16,14 @@ export function CartContextProvider({ children }) {
     function addItem(item, quantity) {
         if (isInCart(item.id)) {
             setCart(cart.map((cartItem) => {
-                if ( cartItem.id === item.id) {
-                    return  {...cartItem, quantity}
+                if (cartItem.id === item.id) {
+                    return { ...cartItem, quantity }
                 } else {
-                    return {...cartItem}
+                    return { ...cartItem }
                 }
             }))
         } else {
-            setCart([...cart, { ...item,  quantity}]);
+            setCart([...cart, { ...item, quantity }]);
         }
     }
 
@@ -48,6 +48,14 @@ export function CartContextProvider({ children }) {
         })
     }
 
+    function countItem(id) {
+        if (cart.length > 0) {
+            return cart.filter((item) => {
+                return item.id === id
+            })
+        }
+    }
+
     function countTotal() {
         let totalItems = 0
         let price = 0
@@ -64,7 +72,7 @@ export function CartContextProvider({ children }) {
 
     return (
         <CartContext.Provider
-            value={{ cart, addItem, removeItem, clearCart, isInCart, countTotal, totalQuantity, totalPrice  }}
+            value={{ cart, addItem, removeItem, clearCart, isInCart, countItem, countTotal, totalQuantity, totalPrice }}
         >
             {children}
         </CartContext.Provider>
