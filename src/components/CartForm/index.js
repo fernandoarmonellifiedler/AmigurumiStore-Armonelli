@@ -4,6 +4,7 @@ import { createOrder } from "../../services/firestore"
 import CartContext from "../../context/CartContext"
 
 export default function CartForm({handleOpenCloseForm}) {
+    const [alertMessage, setAlertMessage] = useState("")
     const { cart, clearCart, totalPrice } = useContext(CartContext)
     const [buyerData, setBuyerData] = useState({
         name: "",
@@ -21,21 +22,26 @@ export default function CartForm({handleOpenCloseForm}) {
 
     function handleFinishOrder(e) {
         e.preventDefault()
-        const dataOrder = {
-            buyer: {
-                name: buyerData.name,
-                phone: buyerData.phone,
-                email: buyerData.email
-            },
-            items: cart,
-            total: totalPrice
+        if (buyerData.name && buyerData.phone && buyerData.email) {
+            const dataOrder = {
+                buyer: {
+                    name: buyerData.name,
+                    phone: buyerData.phone,
+                    email: buyerData.email
+                },
+                items: cart,
+                total: totalPrice
+            }
+            
+            createOrder(dataOrder)
+            .then((res) => {
+                clearCart()
+                navigate("/success/" + res.id)
+            })
+        } else {
+            setAlertMessage("Todos los datos son obligatorios!")
         }
         
-        createOrder(dataOrder)
-        .then((res) => {
-            clearCart()
-            navigate("/success/" + res.id)
-        })
     }
 
     return (
@@ -52,6 +58,10 @@ export default function CartForm({handleOpenCloseForm}) {
                 <input className='CartFormInput' name="phone" value={buyerData.phone} onChange={handleChange}/>
                 <label htmlFor="email">Email</label>
                 <input className='CartFormInput' name="email" value={buyerData.email} onChange={handleChange}/>
+
+                <div className='ItemCount-message'>
+                    <span>{alertMessage}</span>
+                </div>
 
                 <button className="CartFormButton" onClick={handleFinishOrder}>Enviar</button>
             </form>

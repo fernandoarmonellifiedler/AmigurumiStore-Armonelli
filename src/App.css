@@ -2,15 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    height: 100%;
+}
+    
+body {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    width: 100%;
+}
+
 /* === App === */
 .App {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 100%;
-    height: 600px;
 }
 
+/* === main-section === */
+.main-section {
+    margin-bottom: 5rem;
+}
+
+/* === Footer === */
+.footer {
+    padding-top: 1rem;
+    border-top: 2px solid rgb(218, 218, 218);
+    padding-left: 1rem;
+    position: absolute;
+    width: 100%;
+    bottom: 2rem;
+}
 
 /* === Navbar === */
 .nav {
@@ -54,18 +78,6 @@
     align-items: center;
     width: 4rem;
     margin-right: 1rem;
-}
-
-/* === Main === */
-.main-section {
-    
-}
-
-/* === Footer === */
-.footer {
-    padding-top: 1rem;
-    border-top: 2px solid rgb(218, 218, 218);
-    padding-left: 1rem;
 }
 
 /* === ItemList === */
@@ -136,7 +148,7 @@
 }
 
 .loadingItem {
-    margin: auto;
+    margin: 10rem auto;
 }
 
 .loadingText {
@@ -282,4 +294,10 @@
     width: 12rem;
     height: 3rem;
     border-radius: .5rem;
+}
+
+/* === Success page === */
+.SuccessContainer {
+    margin: 10rem auto;
+    padding-left: 10rem;
 }

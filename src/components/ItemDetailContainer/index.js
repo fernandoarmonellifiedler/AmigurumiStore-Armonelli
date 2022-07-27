@@ -13,7 +13,7 @@ export default function ItemDetailContainer() {
         getItem(id)
             .then((resolve) => {
                 setProduct(resolve)
-                setLoading(true)
+                /* setLoading(true) */
             })
             .catch((err) => {
                 console.error(err)
